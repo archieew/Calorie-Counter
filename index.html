@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <title>Calorie Counter</title>
   </head>
   <body>
@@ -11,34 +14,42 @@
       <h1>Calorie Counter</h1>
       <div class="container">
         <form id="calorie-counter">
-          <label for="budget">Budget</label>
-          <input
-            type="number"
-            min="0"
-            id="budget"
-            placeholder="Daily calorie budget"
-            required
-          />
+          <div class="budget-section">
+            <label for="budget">Daily Calorie Budget</label>
+            <input
+              type="number"
+              min="0"
+              id="budget"
+              placeholder="Enter your daily calorie goal"
+              required
+            />
+          </div>
+          
           <fieldset id="breakfast">
-            <legend>Breakfast</legend>
+            <legend>🍳 Breakfast</legend>
             <div class="input-container"></div>
           </fieldset>
+          
           <fieldset id="lunch">
-            <legend>Lunch</legend>
+            <legend>🥪 Lunch</legend>
             <div class="input-container"></div>
           </fieldset>
+          
           <fieldset id="dinner">
-            <legend>Dinner</legend>
+            <legend>🍽️ Dinner</legend>
             <div class="input-container"></div>
           </fieldset>
+          
           <fieldset id="snacks">
-            <legend>Snacks</legend>
+            <legend>🍎 Snacks</legend>
             <div class="input-container"></div>
           </fieldset>
+          
           <fieldset id="exercise">
-            <legend>Exercise</legend>
+            <legend>🏃‍♂️ Exercise</legend>
             <div class="input-container"></div>
           </fieldset>
+          
           <div class="controls">
             <span>
               <label for="entry-dropdown">Add food or exercise:</label>
@@ -52,14 +63,24 @@
               <button type="button" id="add-entry">Add Entry</button>
             </span>
           </div>
-          <div>
+          
+          <div class="button-group">
             <button type="submit">
               Calculate Remaining Calories
             </button>
-            <button type="button" id="clear">Clear</button>
+            <button type="button" id="clear" class="secondary">Clear All</button>
+            <button type="button" id="save" class="secondary">Save Data</button>
           </div>
         </form>
-        <div id="output" class="output hide"></div>
+        
+        <div id="output" class="output hide">
+          <h2>Daily Summary</h2>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div id="summary-content"></div>
+          <div class="stats-grid" id="stats-grid"></div>
+        </div>
       </div>
     </main>
     <script src="./script.js"></script>
